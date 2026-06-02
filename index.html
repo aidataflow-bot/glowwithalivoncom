@@ -1,1 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glow with Alivon helps busy parents prioritize health, confidence, beauty, and wellness through skincare, nutrition, monthly challenges, and community." />
+  <meta name="keywords" content="Glow with Alivon, Alicia Von, wellness, skincare, beauty, nutrition, parents, confidence, Farmasi" />
+  <meta name="theme-color" content="#c89b7b" />
+  <title>Glow with Alivon | Beauty, Wellness, Nutrition & Confidence</title>
+  <style>
+    :root {
+      --rose-gold: #c89b7b;
+      --gold: #d9b76c;
+      --blush: #f7e6e7;
+      --champagne: #f8f1ea;
+      --sage: #c8d8cb;
+      --white: #ffffff;
+      --ink: #3f3640;
+      --muted: #6e6268;
+      --shadow: 0 20px 60px rgba(92, 62, 72, 0.12);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(247,230,231,0.9), transparent 32%),
+        radial-gradient(circle at top right, rgba(217,183,108,0.16), transparent 24%),
+        linear-gradient(180deg, #fffdfc 0%, #fff6f5 48%, #ffffff 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.84);
+      border-bottom: 1px solid rgba(200,155,123,0.14);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(135deg, var(--rose-gold), var(--gold));
+      box-shadow: 0 10px 30px rgba(200, 155, 123, 0.28);
+      font-weight: 800;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .btn,
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover,
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--rose-gold), #e2b59b);
+      box-shadow: 0 16px 34px rgba(200,155,123,0.28);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(200,155,123,0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-ghost {
+      color: var(--rose-gold);
+      background: rgba(200,155,123,0.08);
+      border: 1px solid rgba(200,155,123,0.18);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 0.55rem;
+      align-items: center;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: var(--shadow);
+      color: var(--rose-gold);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    h1, h2, h3 { line-height: 1.08; margin: 0; }
+    h1 {
+      margin-top: 1.15rem;
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero p.lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .microcopy {
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .showcase {
+      position: relative;
+      padding: 1.2rem;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,248,245,0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 520px;
+    }
+
+    .showcase::before,
+    .showcase::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(4px);
+    }
+
+    .showcase::before {
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      top: -60px;
+      background: rgba(247, 230, 231, 0.8);
+    }
+
+    .showcase::after {
+      width: 180px;
+      height: 180px;
+      left: -40px;
+      bottom: -40px;
+      background: rgba(217,183,108,0.14);
+    }
+
+    .card-stack {
+      position: relative;
+      height: 100%;
+      min-height: 490px;
+    }
+
+    .float-card {
+      position: absolute;
+      border-radius: 28px;
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 20px 50px rgba(86, 62, 68, 0.14);
+      border: 1px solid rgba(200,155,123,0.1);
+    }
+
+    .float-card.card-main {
+      inset: 3.25rem 1.25rem 1.25rem 1.25rem;
+      background: linear-gradient(180deg, #fff 0%, #fff7f5 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .float-card.card-top {
+      right: 1rem;
+      top: 0;
+      width: 56%;
+    }
+
+    .float-card.card-side {
+      left: 0;
+      top: 5rem;
+      width: 34%;
+      background: linear-gradient(180deg, rgba(200,216,203,0.5), rgba(255,255,255,0.9));
+    }
+
+    .profile-orb {
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg, rgba(200,155,123,0.22), rgba(247,230,231,0.95));
+      border: 1px solid rgba(200,155,123,0.2);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--rose-gold);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.45rem 0.75rem;
+      background: rgba(200,155,123,0.08);
+      color: var(--rose-gold);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(200,155,123,0.1);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    section {
+      padding: 4.25rem 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 0.85rem;
+      font-size: 1.03rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .panel {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(200,155,123,0.12);
+      border-radius: 26px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .panel.soft {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,241,234,0.82));
+    }
+
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      color: var(--rose-gold);
+      background: linear-gradient(135deg, rgba(200,155,123,0.14), rgba(247,230,231,0.8));
+    }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    ul.clean li {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    ul.clean li::before {
+      content: "✦";
+      color: var(--rose-gold);
+      font-size: 0.95rem;
+      margin-top: 0.1rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .quote {
+      font-size: 1.08rem;
+      color: var(--ink);
+      background: linear-gradient(180deg, rgba(247,230,231,0.62), rgba(255,255,255,0.94));
+      border-radius: 26px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(200,155,123,0.12);
+    }
+
+    .quote strong { display: block; margin-top: 1rem; }
+
+    .challenge-banner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.2rem;
+      padding: 1.6rem;
+      border-radius: 30px;
+      background: linear-gradient(120deg, rgba(200,155,123,0.94), rgba(226,181,155,0.92));
+      color: white;
+      box-shadow: 0 22px 56px rgba(200,155,123,0.3);
+    }
+
+    .challenge-banner .btn-secondary {
+      background: rgba(255,255,255,0.96);
+      color: var(--rose-gold);
+      box-shadow: none;
+    }
+
+    .cta-band {
+      padding: 2rem;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(248,241,234,0.98), rgba(200,216,203,0.72));
+      border: 1px solid rgba(200,155,123,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .testimonial {
+      padding: 1.4rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(200,155,123,0.1);
+    }
+
+    .testimonial .result {
+      color: var(--rose-gold);
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .contact-list a,
+    .contact-list span {
+      display: inline-flex;
+      gap: 0.65rem;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-wrap {
+      border-top: 1px solid rgba(200,155,123,0.14);
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-toggle { display: none; }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .split,
+      .contact-card,
+      .challenge-banner,
+      .grid.four,
+      .grid.three,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase { min-height: auto; }
+      .card-stack { min-height: 480px; }
+    }
+
+    @media (max-width: 820px) {
+      .nav { min-height: 72px; }
+      .menu-toggle {
+        display: inline-flex;
+        background: rgba(200,155,123,0.08);
+        color: var(--rose-gold);
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        padding: 0 0 1rem;
+        justify-content: flex-start;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        width: 100%;
+      }
+      .hero { padding-top: 2.5rem; }
+      .card-stack { min-height: 430px; }
+      .float-card.card-top { width: 62%; }
+      .float-card.card-side { width: 42%; }
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 1.2rem), var(--max)); }
+      h1 { font-size: clamp(2.3rem, 11vw, 3.2rem); }
+      section { padding: 3.25rem 0; }
+      .showcase { padding: 0.8rem; }
+      .card-stack { min-height: 400px; }
+      .float-card.card-main { inset: 3.1rem 0.3rem 0.4rem 0.3rem; }
+      .float-card.card-top { right: 0.2rem; width: 66%; }
+      .float-card.card-side { left: 0.2rem; width: 48%; }
+      .hero-actions, .cta-band { gap: 0.75rem; }
+      .btn, button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Glow with Alivon home">
+        <div class="brand-mark">GA</div>
+        <div>
+          Glow with Alivon
+          <small>Beauty • Wellness • Confidence</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skincare">Skin Care</a>
+        <a href="#wellness">Wellness</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#shop">Shop</a>
+        <a href="#team">Join My Team</a>
+        <a href="#contact" class="btn btn-primary">Start Here</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Glow from the inside out</span>
+          <h1>Helping busy parents build health, confidence, and a life they love.</h1>
+          <p class="lead">
+            Glow with Alivon is more than beauty. It is a modern wellness community designed for busy parents who want healthier habits, better skincare, weight-loss support, beauty guidance, and a path to personal growth.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#challenges">Join the Monthly Challenge</a>
+            <a class="btn btn-secondary" href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener">Shop My Favorites</a>
+            <a class="btn btn-ghost" href="#wellness">Start Your Wellness Journey</a>
+            <a class="btn btn-secondary" href="#team">Join My Team</a>
+          </div>
+          <p class="microcopy">
+            Beauty • Wellness • Nutrition • Confidence • Community
+          </p>
+        </div>
+
+        <div class="showcase" aria-hidden="true">
+          <div class="card-stack">
+            <div class="float-card card-top">
+              <div class="icon-badge">✦</div>
+              <strong>Monthly Glow Challenges</strong>
+              <p>Accountability, meal guidance, wellness support, motivation, and community in one place.</p>
+            </div>
+
+            <div class="float-card card-side">
+              <strong>Start simple</strong>
+              <ul class="clean">
+                <li>Easy daily habits</li>
+                <li>Skincare routines</li>
+                <li>Wellness coaching</li>
+              </ul>
+            </div>
+
+            <div class="float-card card-main">
+              <div>
+                <div class="profile-orb">AV</div>
+                <h3 style="text-align:center; margin-bottom:0.45rem;">Glow with Alivon</h3>
+                <p style="text-align:center; color: var(--muted); margin:0;">
+                  Elegant wellness support for parents ready to feel strong, energized, and confident.
+                </p>
+                <div class="pill-row" style="justify-content:center;">
+                  <span class="pill">Skin Care</span>
+                  <span class="pill">Nutrition</span>
+                  <span class="pill">Confidence</span>
+                  <span class="pill">Community</span>
+                </div>
+              </div>
+              <div class="stat-grid">
+                <div class="stat">
+                  <strong>7</strong>
+                  Skin care routine types
+                </div>
+                <div class="stat">
+                  <strong>30</strong>
+                  Day challenge energy
+                </div>
+                <div class="stat">
+                  <strong>1</strong>
+                  Supportive glow community
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container split">
+        <div class="quote">
+          <div class="eyebrow">About Alicia</div>
+          <h2 style="margin-top:1rem;">A mission rooted in real life.</h2>
+          <p>
+            Hi, I’m Alicia Von — a mom, business owner, martial arts leader, and wellness advocate. I created Glow with Alivon to help busy moms and dads improve their health, gain confidence, build healthy habits, and realize they do not have to choose between being a great parent and pursuing their dreams.
+          </p>
+          <p>
+            Through wellness, nutrition, skincare, beauty, fitness challenges, and entrepreneurship, I help people create lasting transformation from the inside out.
+          </p>
+          <strong>“When you feel better, you live better.”</strong>
+        </div>
+
+        <div class="panel soft">
+          <div class="section-heading" style="margin-bottom:0.8rem;">
+            <div class="eyebrow">Why Glow with Alivon</div>
+            <h2 style="margin-top:1rem;">Designed for real schedules, real families, and real goals.</h2>
+          </div>
+          <ul class="clean">
+            <li>Support for parents who feel overwhelmed, tired, stuck, or ready for change.</li>
+            <li>Simple wellness steps that fit around work, family, and everyday responsibilities.</li>
+            <li>A blend of beauty, nutrition, confidence, and community under one brand.</li>
+            <li>Opportunities for transformation through both personal wellness and entrepreneurship.</li>
+          </ul>
+          <div style="margin-top:1.4rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+            <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+            <a href="#team" class="btn btn-secondary">Explore the Opportunity</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skincare">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Skin Care Routines</div>
+          <h2 style="margin-top:1rem;">Personalized skin care solutions for every glow goal.</h2>
+          <p>
+            Whether you want help with dryness, acne, sensitivity, aging, or a brighter everyday glow, each routine section is built to guide your morning and evening steps with confidence.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="panel"><div class="icon-badge">01</div><h3>Beginner Skin Care</h3><p>Simple essentials to build a strong foundation.</p></article>
+          <article class="panel"><div class="icon-badge">02</div><h3>Anti-Aging Routine</h3><p>Support smoother, firmer, healthy-looking skin.</p></article>
+          <article class="panel"><div class="icon-badge">03</div><h3>Acne Solutions</h3><p>Target breakouts while protecting the skin barrier.</p></article>
+          <article class="panel"><div class="icon-badge">04</div><h3>Brightening &amp; Glow</h3><p>Reveal radiance with tone-evening, glow-boosting care.</p></article>
+          <article class="panel"><div class="icon-badge">05</div><h3>Dry Skin Care</h3><p>Deep hydration and comfort for thirsty skin.</p></article>
+          <article class="panel"><div class="icon-badge">06</div><h3>Oily &amp; Sensitive Skin</h3><p>Balanced care for shine control and gentle support.</p></article>
+        </div>
+        <div class="cta-band" style="margin-top:1.4rem;">
+          <div>
+            <h3>Every routine can include</h3>
+            <p style="margin:0.35rem 0 0; color:var(--muted);">Morning steps, evening steps, recommended products, tutorial videos, and easy product links.</p>
+          </div>
+          <a href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener" class="btn btn-primary">Browse Skin Care Favorites</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="wellness">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Nutrition &amp; Wellness</div>
+          <h2 style="margin-top:1rem;">Fuel your body. Transform your life.</h2>
+          <p>
+            Healthy living does not need to feel complicated. This section is structured to make daily decisions easier with practical resources, guidance, and support.
+          </p>
+        </div>
+        <div class="grid two">
+          <div class="panel soft">
+            <h3>Nutrition Resources</h3>
+            <ul class="clean">
+              <li>Meal plans</li>
+              <li>Healthy recipes</li>
+              <li>Grocery lists</li>
+              <li>Shake guides</li>
+              <li>Snack ideas</li>
+              <li>Hydration tips</li>
+            </ul>
+          </div>
+          <div class="panel soft">
+            <h3>Wellness Support</h3>
+            <ul class="clean">
+              <li>Weight management</li>
+              <li>Energy support</li>
+              <li>Healthy habits</li>
+              <li>Lifestyle coaching</li>
+              <li>Supplement education</li>
+              <li>Family-friendly routines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenges">
+      <div class="container">
+        <div class="challenge-banner">
+          <div>
+            <div class="eyebrow" style="background:rgba(255,255,255,0.16); color:white; box-shadow:none;">Monthly Challenges</div>
+            <h2 style="margin-top:1rem;">Transform together with guided monthly challenges.</h2>
+            <p style="max-width:62ch; color:rgba(255,255,255,0.92);">
+              Join accountability-driven challenges that combine wellness habits, community support, product recommendations, motivation, and real momentum.
+            </p>
+            <div class="hero-actions" style="margin:1.2rem 0 0;">
+              <a class="btn btn-secondary" href="#contact">Join a Challenge</a>
+              <a class="btn btn-ghost" style="background:rgba(255,255,255,0.12); color:white; border-color:rgba(255,255,255,0.22);" href="#success">See Success Stories</a>
+            </div>
+          </div>
+          <div class="panel" style="background:rgba(255,255,255,0.14); color:white; border-color:rgba(255,255,255,0.12); box-shadow:none;">
+            <h3>Challenge examples</h3>
+            <ul class="clean" style="--muted:white;">
+              <li style="color:white;">30-Day Transformation Challenge</li>
+              <li style="color:white;">Weight Loss Challenge</li>
+              <li style="color:white;">Glow Up Challenge</li>
+              <li style="color:white;">Wellness Reset Challenge</li>
+              <li style="color:white;">Fitness Challenges</li>
+              <li style="color:white;">Habit Building Challenges</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid three" style="margin-top:1.4rem;">
+          <div class="panel"><h3>Daily Motivation</h3><p>Mindset support that keeps the momentum going.</p></div>
+          <div class="panel"><h3>Meal Guidance</h3><p>Simple structure to help make daily choices easier.</p></div>
+          <div class="panel"><h3>Community &amp; Prizes</h3><p>Accountability, encouragement, giveaways, and celebration.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="container split">
+        <div class="panel soft">
+          <div class="section-heading" style="margin-bottom:0.5rem;">
+            <div class="eyebrow">Shop</div>
+            <h2 style="margin-top:1rem;">Shop Alicia’s favorite products.</h2>
+            <p>Explore curated categories for beauty, nutrition, and wellness support.</p>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Skin Care</span>
+            <span class="pill">Makeup</span>
+            <span class="pill">Nutrition</span>
+            <span class="pill">Wellness</span>
+            <span class="pill">Weight Management</span>
+            <span class="pill">Personal Care</span>
+            <span class="pill">Bundles &amp; Specials</span>
+          </div>
+          <div style="margin-top:1.2rem;">
+            <a class="btn btn-primary" href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener">Shop Here</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Quick product pathways</h3>
+          <ul class="clean">
+            <li>Build a skin care routine that fits your skin type.</li>
+            <li>Find simple makeup staples for an everyday polished look.</li>
+            <li>Support healthy habits with wellness and nutrition products.</li>
+            <li>Explore bundles designed for transformation and convenience.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="beauty">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Makeup &amp; Beauty</div>
+          <h2 style="margin-top:1rem;">Confidence starts here.</h2>
+          <p>
+            Discover easy beauty routines and makeup looks that work for busy mornings, everyday confidence, and special moments.
+          </p>
+        </div>
+        <div class="grid four">
+          <div class="panel"><h3>Everyday Makeup</h3><p>Quick, polished routines for a fresh everyday glow.</p></div>
+          <div class="panel"><h3>Special Occasion Looks</h3><p>Elevated beauty for events, celebrations, and nights out.</p></div>
+          <div class="panel"><h3>Product Tutorials</h3><p>Simple steps to help you use products with confidence.</p></div>
+          <div class="panel"><h3>Beauty Tips</h3><p>Practical habits that make beauty feel easier and more sustainable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="success">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Success Stories</div>
+          <h2 style="margin-top:1rem;">Real people. Real results.</h2>
+          <p>
+            Highlight transformations in health, confidence, skincare, energy, and business growth with testimonials and before-and-after stories from the community.
+          </p>
+        </div>
+        <div class="grid three">
+          <div class="testimonial">
+            <div class="result">Wellness transformation</div>
+            <p>“I finally felt supported, accountable, and confident enough to stay consistent.”</p>
+            <strong>Future member spotlight</strong>
+          </div>
+          <div class="testimonial">
+            <div class="result">Skin care result</div>
+            <p>“My routine became simple, my skin felt better, and I started feeling more like myself again.”</p>
+            <strong>Future member spotlight</strong>
+          </div>
+          <div class="testimonial">
+            <div class="result">Business success</div>
+            <p>“I found a flexible way to grow, help others, and build confidence in the process.”</p>
+            <strong>Future team leader spotlight</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container split">
+        <div class="panel soft">
+          <div class="eyebrow">Join My Team</div>
+          <h2 style="margin-top:1rem;">Build confidence. Build community. Build income.</h2>
+          <p>
+            If you are looking for something more, Glow with Alivon offers a flexible path to personal growth, additional income, and leadership support while helping others transform their lives.
+          </p>
+          <div style="margin-top:1.1rem;">
+            <a href="#contact" class="btn btn-primary">Join the Glow with Alivon Team Today</a>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Why people join</h3>
+          <ul class="clean">
+            <li>Flexible schedule</li>
+            <li>Work around your family</li>
+            <li>Personal development</li>
+            <li>Team support</li>
+            <li>Leadership training</li>
+            <li>Earn additional income</li>
+            <li>Help others transform their lives</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-card">
+        <div class="panel soft">
+          <div class="eyebrow">Contact</div>
+          <h2 style="margin-top:1rem;">Let’s connect.</h2>
+          <p>
+            I’d love to help you start your journey. Reach out to learn more about challenges, products, wellness support, or the team opportunity.
+          </p>
+          <ul class="contact-list">
+            <li><a href="/cdn-cgi/l/email-protection#2c4b40435b5b4558444d40455a43426c4b414d4540024f4341">📧 <span class="__cf_email__" data-cfemail="1473787b63637d607c75787d627b7a547379757d783a777b79">[email&#160;protected]</span></a></li>
+            <li><a href="https://www.instagram.com/glow_with_alivon/" target="_blank" rel="noopener">📸 Instagram</a></li>
+            <li><span>📘 Facebook link can be added here</span></li>
+            <li><span>🎵 TikTok link can be added here</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Choose your next step</h3>
+          <div class="grid" style="gap:0.8rem; margin-top:1rem;">
+            <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#adcac1c2dadac4d9c5ccc1c4dbc2c3edcac0ccc4c183cec2c092ded8cfc7c8ced990e7c2c4c3889f9dcc889f9deec5ccc1c1c8c3cac8">Join a Challenge</a>
+            <a class="btn btn-secondary" href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener">Shop Products</a>
+            <a class="btn btn-ghost" href="/cdn-cgi/l/email-protection#3c5b50534b4b5548545d50554a53527c5b515d5550125f5351034f495e56595f48017e535357190e0c5d190e0c7f53524f4950485d48555352">Book a Consultation</a>
+            <a class="btn btn-secondary" href="/cdn-cgi/l/email-protection#4b2c27243c3c223f232a27223d24250b2c262a22276528242674383e29212e283f76012422256e797b06326e797b1f2e2a26">Join My Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong>Glow with Alivon</strong><br />
+        Helping Busy Parents Prioritize Their Health, Build Confidence, and Create a Life They Love.
+      </div>
+      <div>
+        © <span id="year"></span> Glow with Alivon. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
