@@ -439,7 +439,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(253, 242, 237, 0.94));
       box-shadow: var(--shadow);
       overflow: hidden;
-      min-height: 520px;
+      min-height: 600px;
       border: 1px solid rgba(212, 165, 116, 0.18);
     }
 
@@ -470,7 +470,7 @@
     .card-stack {
       position: relative;
       height: 100%;
-      min-height: 490px;
+      min-height: 570px;
     }
 
     .float-card {
@@ -490,6 +490,7 @@
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid rgba(183, 110, 121, 0.18);
+      padding: 1.4rem 1.2rem 1.5rem;
     }
 
     .float-card.card-top {
@@ -563,26 +564,32 @@
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
-      margin-top: 1rem;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
     }
 
     .stat {
-      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248, 236, 222, 0.5));
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248, 236, 222, 0.6));
       border-radius: 18px;
-      padding: 1rem;
-      border: 1px solid rgba(212, 165, 116, 0.28);
-      box-shadow: 0 4px 14px rgba(183, 110, 121, 0.08);
+      padding: 0.95rem 0.5rem;
+      border: 1px solid rgba(212, 165, 116, 0.32);
+      box-shadow: 0 4px 14px rgba(183, 110, 121, 0.1);
       text-align: center;
       transition: transform 0.2s ease;
+      overflow: visible;
+      font-size: 0.78rem;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.25;
     }
     .stat:hover { transform: translateY(-3px); }
-    .stat strong { color: var(--rose-gold-deep); }
-
     .stat strong {
       display: block;
-      font-size: 1.3rem;
-      letter-spacing: -0.03em;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: var(--rose-gold-deep);
+      margin-bottom: 0.35rem;
+      font-weight: 800;
     }
 
     section {
@@ -832,7 +839,14 @@
       align-items: center;
       color: var(--muted);
       font-weight: 600;
+      transition: color 0.2s ease;
     }
+    .contact-list a:hover { color: var(--rose-gold-deep); }
+    .contact-list a.contact-whatsapp {
+      color: #25d366;
+      font-weight: 800;
+    }
+    .contact-list a.contact-whatsapp:hover { color: #128c7e; }
 
     footer {
       padding: 3rem 0 3rem;
@@ -1032,7 +1046,7 @@
             Glow with Alivon is more than beauty. It is a modern wellness community designed for busy parents who want healthier habits, better skincare, weight-loss support, beauty guidance, and a path to personal growth.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#challenges">Join the Monthly Challenge</a>
+            <a class="btn btn-primary" href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27d%20love%20to%20join%20the%20Monthly%20Challenge." target="_blank" rel="noopener">Join the Monthly Challenge</a>
             <a class="btn btn-secondary" href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener">Shop My Favorites</a>
             <a class="btn btn-ghost" href="#wellness">Start Your Wellness Journey</a>
             <a class="btn btn-secondary" href="#team">Join My Team</a>
@@ -1077,15 +1091,15 @@
               <div class="stat-grid">
                 <div class="stat">
                   <strong>7</strong>
-                  Skin care routine types
+                  Skincare<br>routines
                 </div>
                 <div class="stat">
                   <strong>30</strong>
-                  Day challenge energy
+                  Day<br>challenge
                 </div>
                 <div class="stat">
                   <strong>1</strong>
-                  Supportive glow community
+                  Glow<br>community
                 </div>
               </div>
             </div>
@@ -1120,7 +1134,7 @@
             <li>Opportunities for transformation through both personal wellness and entrepreneurship.</li>
           </ul>
           <div style="margin-top:1.4rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
-            <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+            <a href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener" class="btn btn-primary">Book a Consultation</a>
             <a href="#team" class="btn btn-secondary">Explore the Opportunity</a>
           </div>
         </div>
@@ -1213,7 +1227,7 @@
               Join accountability-driven challenges that combine wellness habits, community support, product recommendations, motivation, and real momentum.
             </p>
             <div class="hero-actions" style="margin:1.2rem 0 0;">
-              <a class="btn btn-secondary" href="#contact">Join a Challenge</a>
+              <a class="btn btn-secondary" href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27d%20love%20to%20join%20a%20challenge." target="_blank" rel="noopener">Join a Challenge</a>
               <a class="btn btn-ghost" style="background:rgba(255,255,255,0.12); color:white; border-color:rgba(255,255,255,0.22);" href="#success">See Success Stories</a>
             </div>
           </div>
@@ -1338,7 +1352,7 @@
             If you are looking for something more, Glow with Alivon offers a flexible path to personal growth, additional income, and leadership support while helping others transform their lives.
           </p>
           <div style="margin-top:1.1rem;">
-            <a href="#contact" class="btn btn-primary">Join the Glow with Alivon Team Today</a>
+            <a href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27m%20interested%20in%20joining%20the%20Glow%20with%20Alivon%20team." target="_blank" rel="noopener" class="btn btn-primary">Join the Glow with Alivon Team Today</a>
           </div>
         </div>
         <div class="panel">
@@ -1365,7 +1379,8 @@
             I’d love to help you start your journey. Reach out to learn more about challenges, products, wellness support, or the team opportunity. Any purchase-related path on this site sends visitors to Alicia’s Farmasi storefront.
           </p>
           <ul class="contact-list">
-            <li><a href="/cdn-cgi/l/email-protection#c0a7acafb7b7a9b4a8a1aca9b6afae80a7ada1a9aceea3afad">📧 <span class="__cf_email__" data-cfemail="26414a4951514f524e474a4f50494866414b474f4a0845494b">[email&#160;protected]</span></a></li>
+            <li><a class="contact-whatsapp" href="http://wa.me/14072830692" target="_blank" rel="noopener">💬 WhatsApp — (407) 283-0692</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#0f6863607878667b676e63667960614f68626e6663216c6062">📧 <span class="__cf_email__" data-cfemail="1e7972716969776a767f72776871705e79737f7772307d7173">[email&#160;protected]</span></a></li>
             <li><a href="https://www.instagram.com/glow_with_alivon" target="_blank" rel="noopener">📸 Instagram — @glow_with_alivon</a></li>
             <li><span>📘 Facebook — link coming soon</span></li>
             <li><span>🎵 TikTok — link coming soon</span></li>
@@ -1374,10 +1389,10 @@
         <div class="panel">
           <h3>Choose your next step</h3>
           <div class="grid" style="gap:0.8rem; margin-top:1rem;">
-            <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#0463686b73736d706c65686d726b6a446369656d682a676b693b7771666e616770394e6b6d6a21363465213634476c656868616a6361">Join a Challenge</a>
+            <a class="btn btn-primary" href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27d%20love%20to%20join%20a%20challenge." target="_blank" rel="noopener">💬 Join a Challenge on WhatsApp</a>
             <a class="btn btn-secondary" href="https://www.farmasius.com/alivonschmeling" target="_blank" rel="noopener">Shop Products on Farmasi</a>
-            <a class="btn btn-ghost" href="/cdn-cgi/l/email-protection#a3c4cfccd4d4cad7cbc2cfcad5cccde3c4cec2cacf8dc0ccce9cd0d6c1c9c6c0d79ee1ccccc8869193c2869193e0cccdd0d6cfd7c2d7cacccd">Book a Consultation</a>
-            <a class="btn btn-secondary" href="/cdn-cgi/l/email-protection#8ee9e2e1f9f9e7fae6efe2e7f8e1e0cee9e3efe7e2a0ede1e3b1fdfbece4ebedfab3c4e1e7e0abbcbec3f7abbcbedaebefe3">Join My Team</a>
+            <a class="btn btn-ghost" href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">💬 Book a Consultation</a>
+            <a class="btn btn-secondary" href="http://wa.me/14072830692?text=Hi%20Alicia!%20I%27m%20interested%20in%20joining%20your%20team." target="_blank" rel="noopener">💬 Join My Team</a>
           </div>
         </div>
       </div>
